@@ -1,0 +1,66 @@
+<!-- Footer -->
+<footer class="bg-white text-slate-900 py-12 md:py-16 lg:py-16 font-light relative z-10 border-t border-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-4 mb-6 md:mb-8">
+                    <img src="assets/logos/logo%20small%20-%20ohne%20schriftzug%20v3%20small-5c7c2735.png" alt="BERADIO Logo" class="h-12 md:h-14 lg:h-16">
+                    <span class="text-xl md:text-xl lg:text-2xl font-bold text-primary lowercase" style="font-family: 'Roboto', sans-serif;">be radio</span>
+                </div>
+                <p class="text-gray-500 max-w-sm mb-6 md:mb-8 text-base md:text-lg leading-relaxed overflow-hidden">
+                    <span class="inline-block">we <span class="text-primary font-bold">are</span> digital corporate radio!<br> <span>Beschallung von Point of Sales</span></span>
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase tracking-widest mb-4 md:mb-8 text-xs md:text-sm">Kontakt</h4>
+                <ul class="space-y-3 md:space-y-6 text-gray-500 text-sm md:text-base">
+                    <li>
+                        <a href="tel:+4319420514" class="flex items-start hover:text-primary transition"><i class="fas fa-phone mt-1 mr-3 md:mr-4 text-primary"></i> +43 1 942 05 14</a>
+                    </li>
+                    <li>
+                        <a href="mailto:hi@beradio.at" class="flex items-start hover:text-primary transition"><i class="fas fa-envelope mt-1 mr-3 md:mr-4 text-primary"></i> hi@beradio.at</a>
+                    </li>
+                    <li>
+                        <a href="https://maps.google.com/?q=Seitenstettengasse+5/37,+1010+Wien" target="_blank" rel="noopener noreferrer" class="flex items-start hover:text-primary transition"><i class="fas fa-map-marker-alt mt-1 mr-3 md:mr-4 text-primary"></i> <span>Seitenstettengasse 5/37<br>A-1010 Wien</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase tracking-widest mb-4 md:mb-8 text-xs md:text-sm">Rechtliches</h4>
+                <ul class="space-y-3 md:space-y-4 text-gray-500 cursor-pointer font-medium text-sm md:text-base">
+                    <li><a href="impressum.html" class="hover:text-primary transition">Impressum</a></li>
+                    <!-- <li onclick="document.getElementById('modal-datenschutz').showModal()" class="hover:text-primary transition">Datenschutz</li>
+                    <li onclick="document.getElementById('modal-agb').showModal()" class="hover:text-primary transition">AGB</li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-100 pt-6 md:pt-8 text-center text-gray-400 text-xs md:text-sm">
+            &copy; <span id="copyright-year">2026</span> bradio GmbH. Alle Rechte vorbehalten.
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTop" aria-label="Nach oben scrollen">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+    // Scroll to Top Functionality
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>

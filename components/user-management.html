@@ -1,0 +1,161 @@
+﻿<div id="user-management-section"><!-- User Management Section -->
+
+<section id="user-management" class="py-2 md:py-4 lg:py-6 bg-gradient-to-b from-pink-100 via-pink-200 to-pink-100 relative overflow-hidden">
+
+    <div class="container mx-auto px-6 text-center">
+
+        <!-- Badge -->
+
+        <div class="title flex justify-center" style="margin-bottom: 0 !important;" data-aos="fade-in" data-aos-delay="200">
+
+            <span id="user-management-badge" class="inline-block bg-purple-100 px-8 py-3 rounded-2xl text-xl md:text-2xl font-semibold shadow-2xl text-primary">
+
+                <span class="font-bold text-purple-600 text-glow">simples</span> User-Management
+
+            </span>
+
+        </div>
+
+
+
+        <!-- Map Container -->
+
+        <div class="relative max-w-6xl mx-auto" style="margin-top: -20px; margin-bottom: 0.5rem;">
+
+            <div class="network-map-container relative">
+
+                <!-- Österreich Circuit-Board Karte mit geografisch exakten Stadtpunkten -->
+                <!-- viewBox 700×433 | lon 9.5–17.2°E / lat 46.2–49.1°N -->
+                <svg viewBox="0 0 700 433" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- Österreich-Bild (transparenter Hintergrund) -->
+                    <image href="assets/images/oesterreich.png"
+                           x="0" y="0" width="700" height="433"
+                           preserveAspectRatio="xMidYMid meet"/>
+
+                    <!-- Verbindungslinien von Wien (gold, gebogen, animiert) -->
+                    <!-- Wien (610,144) → St. Pölten (546,145) -->
+                    <path class="connection-line" d="M 610,144 Q 578,122 546,145" stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.9"/>
+                    <!-- Wien → Linz (433,131) -->
+                    <path class="connection-line" d="M 610,144 Q 521,92 433,131" stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.9"/>
+                    <!-- Wien → Salzburg (326,196) -->
+                    <path class="connection-line" d="M 610,144 Q 468,118 326,196" stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.9"/>
+                    <!-- Wien → Innsbruck (187,264) -->
+                    <path class="connection-line" d="M 610,144 Q 399,150 187,264" stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.9"/>
+                    <!-- Wien → Bregenz (46,234) -->
+                    <path class="connection-line" d="M 610,144 Q 328,108 46,234" stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.9"/>
+                    <!-- Wien → Graz (530,289) -->
+                    <path class="connection-line" d="M 610,144 Q 635,218 530,289" stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.9"/>
+                    <!-- Wien → Klagenfurt (434,346) -->
+                    <path class="connection-line" d="M 610,144 Q 593,278 434,346" stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.9"/>
+                    <!-- Wien → Villach (396,348) -->
+                    <path class="connection-line" d="M 610,144 Q 558,298 396,348" stroke="#fbbf24" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.9"/>
+
+                    <!-- Stadtpunkte: pulsierender Ring + solider Kern -->
+                    <!-- St. Pölten (48.20°N, 15.63°E) -->
+                    <circle cx="546" cy="145" r="4" fill="rgba(251,191,36,0.4)">
+                        <animate attributeName="r" values="4;13;4" dur="2.5s" begin="0.0s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" begin="0.0s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="546" cy="145" r="4" fill="#fbbf24" filter="url(#glow)"/>
+
+                    <!-- Linz (48.31°N, 14.29°E) -->
+                    <circle cx="433" cy="131" r="4" fill="rgba(251,191,36,0.4)">
+                        <animate attributeName="r" values="4;13;4" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="433" cy="131" r="4" fill="#fbbf24" filter="url(#glow)"/>
+
+                    <!-- Salzburg (47.80°N, 13.04°E) -->
+                    <circle cx="326" cy="196" r="4" fill="rgba(251,191,36,0.4)">
+                        <animate attributeName="r" values="4;13;4" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="326" cy="196" r="4" fill="#fbbf24" filter="url(#glow)"/>
+
+                    <!-- Innsbruck (47.27°N, 11.40°E) -->
+                    <circle cx="187" cy="264" r="4" fill="rgba(251,191,36,0.4)">
+                        <animate attributeName="r" values="4;13;4" dur="2.5s" begin="0.9s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" begin="0.9s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="187" cy="264" r="4" fill="#fbbf24" filter="url(#glow)"/>
+
+                    <!-- Bregenz (47.50°N, 9.75°E) -->
+                    <circle cx="46" cy="234" r="4" fill="rgba(251,191,36,0.4)">
+                        <animate attributeName="r" values="4;13;4" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="46" cy="234" r="4" fill="#fbbf24" filter="url(#glow)"/>
+
+                    <!-- Graz (47.07°N, 15.44°E) -->
+                    <circle cx="530" cy="289" r="4" fill="rgba(251,191,36,0.4)">
+                        <animate attributeName="r" values="4;13;4" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="530" cy="289" r="4" fill="#fbbf24" filter="url(#glow)"/>
+
+                    <!-- Klagenfurt (46.62°N, 14.31°E) -->
+                    <circle cx="434" cy="346" r="4" fill="rgba(251,191,36,0.4)">
+                        <animate attributeName="r" values="4;13;4" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="434" cy="346" r="4" fill="#fbbf24" filter="url(#glow)"/>
+
+                    <!-- Villach (46.61°N, 13.86°E) -->
+                    <circle cx="396" cy="348" r="4" fill="rgba(251,191,36,0.4)">
+                        <animate attributeName="r" values="4;13;4" dur="2.5s" begin="2.1s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="2.5s" begin="2.1s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="396" cy="348" r="4" fill="#fbbf24" filter="url(#glow)"/>
+
+                    <!-- Wien – Hub (48.21°N, 16.37°E) – groß, rot -->
+                    <circle cx="610" cy="144" r="7" fill="rgba(231,39,77,0.35)">
+                        <animate attributeName="r" values="7;22;7" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="610" cy="144" r="7" fill="#e7274d" filter="url(#glow)"/>
+
+                    <!-- Stadtbezeichnungen (gold, dunkler Halo für Lesbarkeit auf dem Bild) -->
+                    <text x="610" y="130" text-anchor="middle" font-family="Roboto,sans-serif" font-size="12" font-weight="700" fill="#fbbf24" stroke="#2e0d47" stroke-width="3" paint-order="stroke" letter-spacing="1.5">WIEN</text>
+                    <text x="532" y="160" text-anchor="end"    font-family="Roboto,sans-serif" font-size="9"  font-weight="600" fill="#fbbf24" stroke="#2e0d47" stroke-width="2.5" paint-order="stroke" letter-spacing="0.5">ST. PÖLTEN</text>
+                    <text x="433" y="118" text-anchor="middle" font-family="Roboto,sans-serif" font-size="9"  font-weight="600" fill="#fbbf24" stroke="#2e0d47" stroke-width="2.5" paint-order="stroke" letter-spacing="0.5">LINZ</text>
+                    <text x="312" y="212" text-anchor="end"    font-family="Roboto,sans-serif" font-size="9"  font-weight="600" fill="#fbbf24" stroke="#2e0d47" stroke-width="2.5" paint-order="stroke" letter-spacing="0.5">SALZBURG</text>
+                    <text x="200" y="257" text-anchor="start"  font-family="Roboto,sans-serif" font-size="9"  font-weight="600" fill="#fbbf24" stroke="#2e0d47" stroke-width="2.5" paint-order="stroke" letter-spacing="0.5">INNSBRUCK</text>
+                    <text x="58"  y="223" text-anchor="start"  font-family="Roboto,sans-serif" font-size="9"  font-weight="600" fill="#fbbf24" stroke="#2e0d47" stroke-width="2.5" paint-order="stroke" letter-spacing="0.5">BREGENZ</text>
+                    <text x="516" y="277" text-anchor="end"    font-family="Roboto,sans-serif" font-size="9"  font-weight="600" fill="#fbbf24" stroke="#2e0d47" stroke-width="2.5" paint-order="stroke" letter-spacing="0.5">GRAZ</text>
+                    <text x="434" y="365" text-anchor="middle" font-family="Roboto,sans-serif" font-size="9"  font-weight="600" fill="#fbbf24" stroke="#2e0d47" stroke-width="2.5" paint-order="stroke" letter-spacing="0.5">KLAGENFURT</text>
+                    <text x="381" y="365" text-anchor="end"    font-family="Roboto,sans-serif" font-size="9"  font-weight="600" fill="#fbbf24" stroke="#2e0d47" stroke-width="2.5" paint-order="stroke" letter-spacing="0.5">VILLACH</text>
+                </svg>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Description Text -->
+
+        <div class="max-w-4xl mx-auto" style="padding-top: 16px;">
+
+            <p class="text-base md:text-lg lg:text-xl text-slate-700 leading-relaxed font-light">
+
+                Durch unser effizientes User-Management vergeben Sie unkompliziert jedem Standort die von Ihnen gewünschten Berechtigungen.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</div>

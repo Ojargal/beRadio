@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - be radio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logos/logo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/logos/logo.png">
+    
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script src="js/config.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+<body class="bg-white text-slate-800 antialiased" style="font-family: 'Roboto', sans-serif;">
+
+    <div class="min-h-screen flex w-full">
+        
+        <!-- LEFT SIDE: Brand & Visuals (Hidden on Mobile) -->
+        <div class="hidden lg:flex w-1/2 bg-slate-900 relative overflow-hidden flex-col justify-between p-16 text-white">
+            
+            <!-- Animated Background Elements -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+                <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/20 rounded-full blur-[100px]"></div>
+                <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px]"></div>
+                <!-- Abstract Line -->
+                <svg class="absolute top-0 left-0 w-full h-full opacity-30" preserveAspectRatio="none">
+                    <path d="M0,0 C300,200 100,800 800,1000" stroke="#ff2d57" stroke-width="2" fill="none" />
+                </svg>
+            </div>
+
+            <!-- Logo -->
+            <div class="relative z-10">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/logos/logo%20small%20-%20ohne%20schriftzug%20v3%20small-5c7c2735.png" alt="BERADIO Logo" class="h-12 md:h-14 lg:h-16 group-hover:scale-105 transition-transform duration-300">
+                    <span class="text-xl md:text-xl lg:text-2xl font-bold lowercase text-primary" style="font-family: 'Roboto', sans-serif;">be <span class="text-primary">radio</span></span>
+                </a>
+            </div>
+
+            <!-- Main Text -->
+            <div class="relative z-10 max-w-lg login-hero-anim opacity-0 translate-y-4">
+                <div class="inline-block py-1 px-3 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest text-primary mb-6 bg-white/5 backdrop-blur-sm">
+                    Admin Portal
+                </div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-thin leading-tight mb-6">
+                    Steuern Sie Ihr <br>
+                    <span class="font-bold text-primary">Programm.</span>
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg font-light leading-relaxed">
+                    Verwalten Sie Playlists, Spots und Geräte zentral an einem Ort. 
+                    Einfach, intuitiv und jederzeit verfügbar.
+                </p>
+            </div>
+
+            <!-- Footer Info -->
+            <div class="relative z-10 flex justify-between items-end text-sm text-slate-500 font-light">
+                <p>&copy; <span id="copyright-year"></span> bradio GmbH</p>
+                
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Login Form -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16 bg-white relative">
+            
+            <div class="w-full max-w-md space-y-8 login-form-anim opacity-0 translate-y-4">
+                
+                <!-- Mobile Logo -->
+                <div class="lg:hidden text-center mb-8">
+                    <a href="index.html" class="inline-flex flex-col items-center gap-2">
+                        <img src="assets/logos/logo%20small%20-%20ohne%20schriftzug%20v3%20small-5c7c2735.png" alt="BERADIO" class="h-12 md:h-14 lg:h-16">
+                        <span class="text-xl md:text-xl lg:text-2xl font-bold lowercase text-primary" style="font-family: 'Roboto', sans-serif;">be radio</span>
+                    </a>
+                </div>
+
+                <div class="text-center lg:text-left">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">Willkommen</h2>
+                    <p class="text-sm sm:text-base text-slate-500 font-light">Bitte geben Sie Ihre Zugangsdaten ein.</p>
+                </div>
+
+                <form onsubmit="handleLogin(event)" class="space-y-6">
+                    
+                    <div class="space-y-2">
+                        <label for="username" class="text-sm font-bold uppercase tracking-wider text-slate-400">Benutzername</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-slate-300 group-focus-within:text-primary transition-colors"></i>
+                            </div>
+                            <input type="text" id="username" required 
+                                class="w-full pl-12 pr-4 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 font-medium"
+                                placeholder="name@firma.at">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label for="password" class="text-sm font-bold uppercase tracking-wider text-slate-400">Passwort</label>
+                            <a href="#" class="text-sm text-primary hover:text-primary-hover font-medium transition">Passwort vergessen?</a>
+                        </div>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-slate-300 group-focus-within:text-primary transition-colors"></i>
+                            </div>
+                            <input type="password" id="password" required 
+                                class="w-full pl-12 pr-12 py-4 bg-slate-50 border-2 border-slate-100 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 font-medium"
+                                placeholder="••••••••">
+                            <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition cursor-pointer">
+                                <i class="fas fa-eye" id="toggleIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" class="w-5 h-5 text-primary border-2 border-slate-300 rounded focus:ring-primary focus:ring-offset-0 cursor-pointer">
+                        <label for="remember" class="ml-3 text-sm text-slate-600 cursor-pointer select-none">Angemeldet bleiben</label>
+                    </div>
+
+                    <button type="submit" id="loginBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 flex justify-center items-center gap-2">
+                        <span>Anmelden</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </button>
+
+                </form>
+
+                <div class="pt-6 text-center border-t border-slate-100">
+                    <p class="text-slate-500 text-sm">
+                        Noch kein Kunde? 
+                        <a href="test.html" class="text-primary font-bold hover:text-primary-hover transition ml-1">Jetzt 30 Tage kostenlos testen</a>
+                    </p>
+                </div>
+                
+                <!-- Links for Legal (Modals) -->
+                <div class="flex justify-center items-center gap-6 text-xs text-slate-400 pt-4">
+                    <a href="impressum.html" class="hover:text-slate-600 transition inline-block">Impressum</a>
+                    <!-- <a href="#" onclick="event.preventDefault(); document.getElementById('modal-datenschutz').showModal();" class="hover:text-slate-600 transition inline-block">Datenschutz</a> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals Container -->
+    <div id="modals"></div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" aria-label="Nach oben scrollen">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript: Component Loader -->
+    <script>
+        // 1. Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Left side content
+            gsap.to(".login-hero-anim", {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power3.out",
+                delay: 0.2
+            });
+            
+            // Right side form
+            gsap.to(".login-form-anim", {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power3.out",
+                delay: 0.4
+            });
+
+            // Load Modals
+            loadComponent('modals', 'components/modals.html');
+            
+            // Update Copyright Year
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        });
+
+        // 2. Component Loader
+        async function loadComponent(elementId, componentPath) {
+            try {
+                const response = await fetch(componentPath);
+                if (!response.ok) throw new Error('Failed to load');
+                const html = await response.text();
+                const el = document.getElementById(elementId);
+                if (el) el.innerHTML = html;
+            } catch (e) { console.error(e); }
+        }
+
+        // 3. Form Logic
+        function togglePassword() {
+            const input = document.getElementById('password');
+            const icon = document.getElementById('toggleIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            const originalContent = btn.innerHTML;
+            const username = document.getElementById('username').value;
+
+            // Loading State
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+
+            // Simulate API Call
+            setTimeout(() => {
+                alert(`Login Simulation erfolgreich!\nWillkommen, ${username}`);
+                btn.innerHTML = originalContent;
+                btn.disabled = false;
+                btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                
+                // Redirect simulation
+                // window.location.href = 'dashboard.html';
+            }, 1500);
+        }
+
+    </script>
+    
+    <!-- JavaScript: Scroll to Top -->
+    <script src="js/scrollToTop.js"></script>
+
+</body>
+</html>

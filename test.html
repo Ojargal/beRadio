@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>be radio - we are digital corporate radio!</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logos/logo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/logos/logo.png">
+    
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script src="js/config.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Layout für "Nicht scrollbar auf großen Screens" */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 80px; /* Platz für fixed Navbar */
+        }
+
+        /* Override der min-h-screen Klasse aus der Komponente, damit es auf großen Screens passt */
+        #test-form section {
+            min-height: auto !important;
+            padding-top: 2rem !important;
+            padding-bottom: 2rem !important;
+        }
+
+        /* Footer kompakter machen */
+        #footer footer {
+            padding-top: 2rem !important;
+            padding-bottom: 2rem !important;
+        }
+
+        /* Navbar sichtbar machen (da keine Animation geladen wird) */
+        nav {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- Navigation Container -->
+    <div id="navigation"></div>
+
+    <!-- Component Container -->
+    <main>
+        <div id="test-form" class="w-full"></div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer"></div>
+    
+    <div id="modals"></div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" aria-label="Nach oben scrollen">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript: Component Loader -->
+    <script>
+        // Simple component loader for test page
+        async function loadComponent(elementId, componentPath) {
+            try {
+                const response = await fetch(componentPath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${componentPath}: ${response.statusText}`);
+                }
+                const html = await response.text();
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.innerHTML = html;
+                }
+            } catch (error) {
+                console.error(`Error loading component ${componentPath}:`, error);
+            }
+        }
+
+        // Load components when DOM is ready
+        document.addEventListener('DOMContentLoaded', async function() {
+            await Promise.all([
+                loadComponent('navigation', 'components/navigation.html'),
+                loadComponent('test-form', 'components/test-form.html'),
+                loadComponent('footer', 'components/footer.html'),
+                loadComponent('modals', 'components/modals.html')
+            ]);
+
+            // 1. Unnötige Links (Preise, Kontakt) ausblenden & Start-Link anpassen
+            const linksToHide = document.querySelectorAll('a[href="#preise"], a[href="#contact"]');
+            linksToHide.forEach(el => el.style.display = 'none');
+
+            document.querySelectorAll('a[href="#hero-bg"]').forEach(link => {
+                link.href = 'index.html';
+            });
+
+            // Navigation rechtsbündig ausrichten (neben Login-Button)
+            const navContainer = document.querySelector('#navigation .hidden.md\\:flex > div:first-child');
+            if (navContainer) {
+                navContainer.classList.remove('justify-center');
+                navContainer.classList.add('justify-end', 'mr-8');
+            }
+
+            // Mobile Menu initialisieren
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+                mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+            }
+
+            // Paket aus URL vorauswählen
+            (function() {
+                const params = new URLSearchParams(window.location.search);
+                const paket = (params.get('paket') || '').toLowerCase();
+                const config = {
+                    testen:   { label: 'be radio - TESTEN',   title: 'PRO',      price: '30 Tage',   subtitle: 'für 1 Outlet kostenlos testen', extras: ['Managed Content Service', 'Admin & Mitarbeiter Login'] },
+                    basic:    { label: 'be radio - BASIC',    title: 'BASIC',    price: '€ 29,90',   subtitle: 'monatlich pro Outlet',           extras: [] },
+                    advanced: { label: 'be radio - ADVANCED', title: 'ADVANCED', price: '€ 34,90',   subtitle: 'monatlich pro Outlet',           extras: ['Admin & Mitarbeiter Login'] },
+                    pro:      { label: 'be radio - PRO',      title: 'PRO',      price: '€ 39,90',   subtitle: 'monatlich pro Outlet',           extras: ['Managed Content Service', 'Admin & Mitarbeiter Login'] },
+                };
+
+                function applySidebar(cfg) {
+                    const title = document.getElementById('sidebar-title');
+                    if (title) title.textContent = cfg.title;
+                    const price = document.getElementById('sidebar-price');
+                    if (price) price.textContent = cfg.price;
+                    const subtitle = document.getElementById('sidebar-subtitle');
+                    if (subtitle) subtitle.textContent = cfg.subtitle;
+                    const extrasContainer = document.getElementById('sidebar-extras-container');
+                    if (extrasContainer) {
+                        if (cfg.extras.length === 0) {
+                            extrasContainer.style.display = 'none';
+                        } else {
+                            extrasContainer.style.display = '';
+                            extrasContainer.innerHTML = cfg.extras.map(e =>
+                                `<div class="flex items-center space-x-3 text-slate-600"><i class="fas fa-plus text-primary text-sm"></i><span class="text-sm">${e}</span></div>`
+                            ).join('');
+                        }
+                    }
+                }
+
+                // Set from URL param on load
+                const cfg = config[paket];
+                if (cfg) {
+                    const sel = document.getElementById('paket-select');
+                    if (sel) {
+                        for (let i = 0; i < sel.options.length; i++) {
+                            if (sel.options[i].text === cfg.label) { sel.selectedIndex = i; break; }
+                        }
+                    }
+                    applySidebar(cfg);
+                }
+
+                // Update sidebar on manual dropdown change
+                const sel = document.getElementById('paket-select');
+                if (sel) {
+                    sel.addEventListener('change', function() {
+                        const selected = this.value.replace('be radio - ', '').toLowerCase();
+                        const c = config[selected];
+                        if (c) applySidebar(c);
+                    });
+                }
+            })();
+        });
+    </script>
+    
+    <!-- JavaScript: Scroll to Top -->
+    <script src="js/scrollToTop.js"></script>
+
+    <script>
+        function handleTestSubmit(event) {
+            event.preventDefault();
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Wird gesendet...';
+            submitBtn.disabled = true;
+            setTimeout(() => {
+                alert('Vielen Dank für Ihr Interesse!\n\nWir werden uns innerhalb von 24 Stunden bei Ihnen melden.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                event.target.reset();
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>

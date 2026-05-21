@@ -1,0 +1,102 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,900&display=swap');
+  .musik-headline {
+    font-family: 'Barlow', 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: 0.01em;
+    display: inline-block;
+    transform: scaleX(1.18);
+    transform-origin: center center;
+  }
+  .musik-solid-white  { display: block; color: #ffffff; text-align: left; }
+  .musik-outline      { display: block; -webkit-text-stroke: 1px #FFE500; color: transparent; text-align: left; }
+  .musik-solid-yellow { display: block; color: #FFE500; text-align: left; }
+</style>   
+
+<!-- Benefits Section -->
+<section id="benefits-section" class="py-16 md:py-16 lg:py-20 relative overflow-hidden">
+    <!-- Background Image -->
+    <div class="benefits-bg absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/images/just_music.jpg'); transform: scale(1.2);"></div>
+    
+    <!-- Overlay for better readability -->
+    <div class="absolute inset-0 bg-black/25"></div>
+    
+    <div class="container mx-auto px-6 text-center relative z-10">
+
+        <!-- Section Headline -->
+        <h2 class="musik-headline mb-10 md:mb-14" style="font-size: clamp(4rem, 10vw, 8.5rem);">
+            <span class="musik-solid-white">Musik</span>
+            <span class="musik-outline">verleiht</span>
+            <span class="musik-solid-yellow">Feeling.</span>
+        </h2>
+
+        <!-- Feature Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 md:gap-6 lg:gap-12 max-w-6xl mx-auto items-center">
+            <!-- Feature 1 -->
+            <div class="benefit-item  opacity-0">
+                <div class="mb-3 md:mb-4">
+                    <i class="benefit-icon fas fa-users text-3xl sm:text-4xl md:text-3xl lg:text-4xl text-primary"></i>
+                </div>
+                <p class="benefit-text text-sm sm:text-base md:text-xs lg:text-base text-white font-medium leading-tight">
+                    für jede Zielgruppe die passende Musik
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="benefit-item  opacity-0">
+                <div class="mb-3 md:mb-4">
+                    <i class="benefit-icon fas fa-sliders-h text-3xl sm:text-4xl md:text-3xl lg:text-4xl text-primary"></i>
+                </div>
+                <p class="benefit-text text-sm sm:text-base md:text-xs lg:text-base text-white font-medium leading-tight">
+                    optimierte Tracks
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="benefit-item  opacity-0 col-span-1 sm:col-span-2 md:col-span-1">
+                <div class="mb-3 md:mb-4">
+                    <i class="benefit-icon fas fa-music text-4xl sm:text-5xl md:text-3xl lg:text-4xl text-primary"></i>
+                </div>
+                <p class="benefit-text text-sm sm:text-base md:text-xs lg:text-base text-white font-bold leading-tight">
+                    your BRAND,<br>your SOUNDTRACK
+                </p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="benefit-item  opacity-0">
+                <div class="mb-3 md:mb-4">
+                    <i class="benefit-icon fas fa-sync-alt text-3xl sm:text-4xl md:text-3xl lg:text-4xl text-primary"></i>
+                </div>
+                <p class="benefit-text text-sm sm:text-base md:text-xs lg:text-base text-white font-medium leading-tight">
+                    always up to date
+                </p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="benefit-item  opacity-0">
+                <div class="mb-3 md:mb-4">
+                    <i class="benefit-icon fas fa-child text-3xl sm:text-4xl md:text-3xl lg:text-4xl text-primary" aria-label="Jugendfrei"></i>
+                </div>
+                <p class="benefit-text text-sm sm:text-base md:text-xs lg:text-base text-white font-medium leading-tight">
+                    100 % jugendfrei!
+                </p>
+            </div>
+        </div>
+        <div id="benefits-cta-text" class="text-center mt-10 md:mt-12 lg:mt-16 mb-26 relative opacity-0">
+             
+            <h2 class="text-3xl sm:text-2xl md:text-5xl font-light mb-4 text-white">JETZT KOSTENLOS <span class="font-bold text-primary">TESTEN!</span></h2>
+            <p class="text-3xl sm:text-2xl md:text-2xl font-light mb-4 text-white">30 Tage / <span class="font-bold text-primary">ein Outlet</span></p>
+        </div>
+        <!-- CTA Button -->
+        <div id="benefits-cta-btn" class="mt-8 md:mt-10 lg:mt-12 opacity-0">
+            <a 
+href="test.html" 
+                class="uppercase text-center inline-block bg-primary text-white px-4 md:px-5 lg:px-7 py-2.5 md:py-3 rounded-full font-bold text-xs md:text-sm hover:bg-primary-hover transition shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transform duration-300"
+            >
+                anfragen
+            </a>
+        </div>
+    </div>
+</section>

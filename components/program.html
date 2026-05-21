@@ -1,0 +1,237 @@
+<!-- Typewriter Section (Klein und Kompakt) -->
+<section class="w-full flex justify-center items-center py-6 md:py-12 lg:py-16 bg-gradient-to-br from-slate-100 to-slate-100 relative z-10">
+    <!-- Hintergrund -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-10 left-10 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-2xl"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-slate-400 rounded-full mix-blend-multiply filter blur-2xl"></div>
+    </div>
+    
+    <!-- Text direkt ohne Card -->
+    <div class="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl text-slate-900 font-light flex flex-col items-center text-center gap-2 md:gap-4 relative z-10 max-w-4xl mx-4 px-4 md:px-8">
+        <div class="font-light leading-tight program-header-text opacity-0">
+            jedem <span class="font-bold text-primary">OUTLET</span> sein individuelles <span class="font-bold">PROGRAMM</span>
+        </div>
+    </div>
+</section>
+
+<!-- Program Section -->
+<section id="program" class="w-full flex flex-col justify-center items-center bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 relative z-10 py-2 md:py-16 lg:py-20 xl:py-24">
+
+    <div class="grid grid-cols-1 xl:grid-cols-2 items-start justify-center w-full gap-2 md:gap-12 lg:gap-16 xl:gap-20 px-4 md:px-6 xl:px-24 relative z-10">
+        <!-- Schedule Visualization -->
+        <div class="w-full flex flex-col items-center justify-start">
+        <div class="flex flex-nowrap gap-6 program-calendar-container">
+            
+            <div class="flex w-16 flex-col gap-[3.5rem] pt-2 md:pt-12 text-right text-sm md:text-lg font-light text-slate-500 program-time-col opacity-0 flex-shrink-0">
+                
+                        <div>14.00</div>
+                        <div>15.00</div>
+                        <div>16.00</div>
+                        <div>17.00</div>
+                        <div>18.00</div>
+                        <div>19.00</div>
+                        <div>20.00</div>    
+                        <div>21.00</div>    
+                        <div>22.00</div>    
+            </div>
+
+            <div class="relative flex w-[280px] flex-col program-calendar opacity-0 flex-shrink-0">
+                <h2 class="mb-6 text-center text-2xl font-bold text-slate-700 tracking-wide">Freitag</h2>
+
+                <div class="flex flex-col gap-4">
+                    <div class="program-block opacity-0 bg-gradient-purple relative z-10 flex h-48 gap-4 rounded-xl p-4 text-white shadow-lg max-w-[280px]">
+                        <div class="h-16 w-16 shrink-0 overflow-hidden rounded bg-yellow-200">
+                            <img src="assets/images/program/popchart.jpeg" class="h-full w-full object-cover opacity-80 mix-blend-multiply" />
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Pop</h3>
+                            <p class="text-lg opacity-90">Charts</p>
+                        </div>
+                    </div>
+
+                    <div class="program-badge opacity-0 relative z-20 my-0.5 flex justify-end w-full">
+                        <div class="flex w-fit items-center gap-2.5 rounded-full bg-slate-800 px-5 py-2.5 text-white shadow-md -mr-3">
+                            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-sm font-bold">S</span>
+                            <span class="text-base">Spot</span>
+                        </div>
+                    </div>
+
+                    <div class="program-block opacity-0 bg-gradient-orange relative z-10 flex h-40 gap-4 rounded-xl p-4 text-white shadow-lg max-w-[280px] w-full">
+                        <div class="h-16 w-16 shrink-0 overflow-hidden rounded bg-orange-200">
+                            <img src="assets/images/program/crossover.jpeg" class="h-full w-full object-cover" />
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Crossover</h3>
+                            <p class="text-lg opacity-90">Mix</p>
+                        </div>
+                    </div>
+
+                    <div class="program-badge opacity-0 relative z-20 my-0.5 flex justify-end w-full">
+                        <div class="flex w-fit items-center gap-2.5 rounded-full bg-slate-800 px-5 py-2.5 text-white shadow-md -mr-3">
+                            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-sm font-bold">M</span>
+                            <span class="text-base">Moderation</span>
+                        </div>
+                    </div>
+
+                    <div class="program-block opacity-0 bg-gradient-green relative z-10 flex h-64 gap-4 rounded-xl p-4 text-white shadow-lg max-w-[280px] w-full">
+                        <div class="h-16 w-16 shrink-0 overflow-hidden rounded bg-green-200">
+                            <img src="assets/images/program/classicjazz.jpeg" class="h-full w-full object-cover" />
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Classic</h3>
+                            <p class="text-lg opacity-90">Jazz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex w-[280px] flex-col program-calendar opacity-0 flex-shrink-0">
+                <h2 class="mb-6 text-center text-2xl font-bold text-slate-700 tracking-wide">Samstag</h2>
+
+                <div class="flex flex-col gap-4">
+                    <div class="program-block opacity-0 bg-gradient-red relative z-10 flex h-32 gap-4 rounded-xl p-4 text-white shadow-lg max-w-[280px] w-full">
+                        <div class="h-16 w-16 shrink-0 overflow-hidden rounded bg-red-200">
+                            <img src="assets/images/program/popmix.jpeg" class="h-full w-full object-cover" />
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Pop</h3>
+                            <p class="text-lg opacity-90">Mix</p>
+                        </div>
+                    </div>
+
+                    <div class="program-badge opacity-0 relative z-20 my-0.5 flex justify-end w-full">
+                        <div class="flex w-fit items-center gap-2.5 rounded-full bg-slate-800 px-5 py-2.5 text-white shadow-md -mr-3">
+                            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-sm font-bold">M</span>
+                            <span class="text-base">Moderation</span>
+                        </div>
+                    </div>
+
+                    <div class="program-block opacity-0 bg-gradient-pink relative z-10 flex h-72 gap-4 rounded-xl p-4 text-white shadow-lg max-w-[280px] w-full">
+                        <div class="h-16 w-16 shrink-0 overflow-hidden rounded bg-pink-200">
+                            <img src="assets/images/program/sommerwaves.jpeg" class="h-full w-full object-cover" />
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Summer</h3>
+                            <p class="text-lg opacity-90">Waves</p>
+                        </div>
+                    </div>
+
+                    <div class="program-badge opacity-0 relative z-20 my-0.5 flex justify-end w-full">
+                        <div class="flex w-fit items-center gap-2.5 rounded-full bg-slate-800 px-5 py-2.5 text-white shadow-md -mr-3">
+                            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-sm font-bold">S</span>
+                            <span class="text-base">Signation</span>
+                        </div>
+                    </div>
+
+                    <div class="program-block opacity-0 bg-gradient-blue relative z-10 flex h-32 gap-4 rounded-xl p-4 text-white shadow-lg max-w-[280px] w-full">
+                        <div class="h-16 w-16 shrink-0 overflow-hidden rounded bg-blue-200">
+                            <img src="assets/images/program/softlounge.jpeg" class="h-full w-full object-cover" />
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Soft</h3>
+                            <p class="text-lg opacity-90">Lounge</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Text Content -->
+        <div class="w-full flex flex-col gap-4 pt-8 program-text-box opacity-0">
+            <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100">
+                <h3 class="text-3xl md:text-4xl font-light text-slate-900"><span class="font-bold text-primary">einfache</span> Programmplanung</h3>
+            </div>
+            
+            <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/50 flex flex-col gap-6">
+                <p class="text-xl text-slate-700 leading-relaxed font-light">
+                    be radio bietet Ihnen die Möglichkeit Standorte zentral oder dezentral zu verwalten.
+                </p>
+                <p class="text-lg text-slate-700 leading-relaxed font-light">
+                    Durch Hochladen eigener Inhalte ergänzen Sie Ihr Programm ganz einfach mit regional, national oder international sprachlich angepassten Moderationen, Werbeeinspielungen und Signations!
+                </p>
+                <p class="text-lg text-slate-700 leading-relaxed font-light">
+                    <span class="font-medium text-primary">Audiomarketing leicht gemacht!</span> Erstellen Sie mühelos komplexe Marketingkampagnen und teilen Sie jedem Outlet - angepasst an dessen Öffnungszeiten - sein eigenes, individuelles Programm zu.
+                </p>
+                <p class="text-lg text-slate-700 leading-relaxed font-light">
+                    Einfach, schnell und kostengünstig betreiben Sie Ihr vollwertiges <span class="font-bold text-slate-900">CORPORATE RADIO</span> – mittels Tablet, Laptop oder PC – weltweit und in Sekundenschnelle.
+                </p>
+            </div>
+        </div>
+
+        <div class="w-full flex flex-col gap-4 pt-8 program-text-box opacity-0">
+            <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100">
+                <h3 class="text-3xl md:text-4xl font-light text-slate-900">Playlists für <span class="font-bold text-primary">familienfreundliches</span> Ambiente</h3>
+            </div>
+            
+            <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/50 flex flex-col gap-6">
+                <p class="text-xl text-slate-700 leading-relaxed font-light">Mit täglichen, automatisierten Musikupdates, Musikspecials für saisonale Ereignisse wie Halloween, Weihnachten oder regionalen Events ist Ihr Musikprogramm immer <span class="font-medium text-primary">up to date</span>.</p>
+                <p class="text-lg text-slate-700 leading-relaxed font-light">
+                    Vereinzelte Songs sind nicht nach Ihrem Geschmack? Mit einem Klick unerwünschte Tracks per Smartphone, Tablet, Laptop oder PC aus dem Programm nehmen.
+                </p>
+            </div>
+        </div>
+
+        <!-- Animated Music Tracks (Bottom Right) -->
+        <div class="w-full flex flex-col items-start pl-0 md:pl-6 lg:pl-22 pt-16">
+            <!-- Track List without Animation and Background -->
+            <div class="space-y-4 music-track-list w-full flex flex-col items-center">
+                <!-- Track 1 -->
+                <div class="music-track program-track opacity-0 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-3 flex items-center justify-between shadow-xl max-w-[550px] w-full">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-slate-900 overflow-hidden flex-shrink-0 shadow-lg ring-2 ring-purple-400/30">
+                            <img src="assets/images/program/healtheworld.jpeg" alt="Album" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white leading-tight">Heal The World</h4>
+                            <p class="text-purple-200 text-sm font-light">Michael Jackson</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-unlock-alt text-green-400 text-lg drop-shadow-lg"></i>
+                </div>
+
+                <!-- Track 2 -->
+                <div class="music-track program-track opacity-0 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-3 flex items-center justify-between shadow-xl max-w-[550px] w-full md:ml-24">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-slate-900 overflow-hidden flex-shrink-0 shadow-lg ring-2 ring-purple-400/30">
+                            <img src="assets/images/program/sexdrugs.jpeg" alt="Album" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white leading-tight">Sex, Drugs, Rock & Roll</h4>
+                            <p class="text-purple-200 text-sm font-light">Ian Dury</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-lock text-red-500 text-lg drop-shadow-lg"></i>
+                </div>
+
+                <!-- Track 3 -->
+                <div class="music-track program-track opacity-0 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-3 flex items-center justify-between shadow-xl max-w-[550px] w-full">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-slate-900 overflow-hidden flex-shrink-0 shadow-lg ring-2 ring-purple-400/30">
+                            <img src="assets/images/program/rain.jpeg" alt="Album" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white leading-tight">Rain</h4>
+                            <p class="text-purple-200 text-sm font-light">Madonna</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-unlock-alt text-green-400 text-lg drop-shadow-lg"></i>
+                </div>
+
+                <!-- Track 4 -->
+                <div class="music-track program-track opacity-0 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-3 flex items-center justify-between shadow-xl max-w-[550px] w-full">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-slate-900 overflow-hidden flex-shrink-0 shadow-lg ring-2 ring-purple-400/30">
+                            <img src="assets/images/program/herewego.jpeg" alt="Album" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white leading-tight">Here We Go... Again</h4>
+                            <p class="text-purple-200 text-sm font-light">The Weeknd</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-unlock-alt text-green-400 text-lg drop-shadow-lg"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

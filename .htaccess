@@ -1,0 +1,60 @@
+# BeRadio - Apache Configuration
+# Allow access to all files in this directory
+
+# Standard Index Files
+DirectoryIndex index.html index.htm
+
+# Allow access from all origins
+<IfModule mod_authz_core.c>
+    Require all granted
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Allow from all
+</IfModule>
+
+# MIME Types für Media-Dateien
+AddType video/mp4 .mp4
+AddType video/webm .webm
+AddType image/jpeg .jpeg .jpg
+AddType image/png .png
+AddType image/gif .gif
+AddType application/javascript .js
+AddType text/css .css
+
+# CORS Headers - Erlaubt Zugriff auf Ressourcen
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
+
+# Compression für bessere Performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Cache Control für Media-Dateien
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Verhindere Zugriff auf sensible Dateien
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Erlaube Zugriff auf .htaccess selbst nicht
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>be radio - we are digital corporate radio!</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logos/logo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/logos/logo.png">
+    
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script src="js/config.js"></script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/beta-animation.css">
+    <link rel="stylesheet" href="css/text-glow.css">
+    
+    <style>
+        /* Fallback: Show page after 2 seconds even if animations fail */
+        body {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        body.loaded {
+            opacity: 1 !important;
+        }
+    </style>
+    
+    <script>
+        // Emergency fallback: Make page visible after 2 seconds
+        setTimeout(function() {
+            document.body.classList.add('loaded');
+        }, 2000);
+    </script>
+</head>
+<body class="text-slate-800 antialiased relative">
+
+
+
+    <!-- Component Containers -->
+    <div id="navigation"></div>
+    <div id="hero"></div>
+    <div id="industries"></div>
+    <div id="clients"></div>
+    <div id="info-section"></div>
+    <div id="program"></div>
+    <div id="user-management-section"></div>
+    <div id="features"></div>
+    <div id="setup"></div>
+    <div id="pricing"></div>
+    <div id="contact"></div>
+    <!-- QR Contact Section -->
+<section id="qr-contact-section" class="py-16 md:py-20 lg:py-24 relative overflow-hidden">
+    <!-- Gradient Background -->
+    <div class="qr-contact-bg absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-primary/10"></div>
+    
+    <!-- Animated Background Pattern -->
+    <div class="qr-contact-pattern absolute inset-0 opacity-10">
+        <div class="absolute top-20 right-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-slate-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-40 left-1/2 w-80 h-80 bg-primary/50 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 4s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                <!-- QR Code -->
+                <div class="qr-contact-qr w-full md:w-1/3 flex justify-center opacity-0">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition duration-300"></div>
+                        <img 
+                            src="assets/qrcode/qr-contact.png" 
+                            alt="QR Code Kontakt" 
+                            class="relative w-48 md:w-56 h-auto rounded-2xl shadow-lg group-hover:scale-105 transition duration-300"
+                        >
+                    </div>
+                </div>
+                
+                <!-- Text Content -->
+                <div class="w-full md:w-2/3 text-center md:text-left">
+                    <h2 class="qr-contact-title text-4xl md:text-5xl font-light text-slate-900 mb-6 opacity-0">
+                        <span class="font-bold text-primary">Noch Fragen ...?</span>
+                    </h2>
+                    <p class="qr-contact-phone text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-4 opacity-0">
+                        ... einfach anrufen 
+                        <a href="tel:+4319420514" class="font-bold text-primary hover:text-primary-hover transition">
+                            +43 1 942 05 14
+                        </a>
+                    </p>
+                    <p class="qr-contact-email text-xl md:text-2xl text-slate-600 font-light leading-relaxed opacity-0">
+                        oder E-mail an 
+                        <a href="mailto:hi@beradio.at" class="font-bold text-primary hover:text-primary-hover transition">
+                            hi@beradio.at
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <div id="benefits"></div>
+    <div id="footer"></div>
+    <div id="modals"></div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" aria-label="Nach oben scrollen">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript: Component Loader -->
+    <script src="js/componentloader.js"></script>
+    
+    <!-- JavaScript: Animations -->
+    <script src="js/animations.js"></script>
+    
+    <!-- JavaScript: Scroll to Top -->
+    <script src="js/scrollToTop.js"></script>
+
+    <script>
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a[href^="#"]');
+            if (!link) return;
+            const id = link.getAttribute('href').slice(1);
+            const target = document.getElementById(id);
+            if (!target) return;
+            e.preventDefault();
+            const navHeight = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top, behavior: 'smooth' });
+        });
+    </script>
+    
+    <!-- JavaScript: Scroll Debugger (Optional - aktivieren für Monitoring) -->
+    <!-- <script src="js/scrollDebug.js"></script> -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+</html>

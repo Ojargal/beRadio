@@ -1,0 +1,14 @@
+@keyframes pulse-beta {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: .9;
+    }
+}
+
+.animate-pulse-beta {
+    animation: pulse-beta 1.5s infinite;
+}

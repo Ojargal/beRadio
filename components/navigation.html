@@ -1,0 +1,73 @@
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm transition-all duration-300">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Logo (immer sichtbar, links) -->
+        <a href="#hero-bg" class="flex items-center flex-shrink-0 mr-2 md:mr-4 gap-2 md:gap-3" style="height:64px;">
+            <img src="assets/logos/logo%20small%20-%20ohne%20schriftzug%20v3%20small-5c7c2735.png" alt="BERADIO Logo" class="h-12 md:h-14 lg:h-16 w-auto select-none" style="max-width:64px;" loading="lazy">
+            <span class="text-xl md:text-xl lg:text-2xl font-bold text-primary lowercase">be radio</span>
+        </a>
+        <!-- Desktop Navigation - Centered -->
+        <div class="hidden md:flex items-center text-sm font-medium uppercase tracking-widest text-gray-500 w-full">
+            <div class="flex-1 flex justify-center gap-4 md:gap-6 lg:gap-8">
+                <a href="#hero-bg" class="hover:text-primary transition">Start</a>
+                <a href="#preise" class="hover:text-primary transition">Preise</a>
+                <a href="setup.html" class="hover:text-primary transition">Setup</a>
+                <a href="impressum.html" class="hover:text-primary transition">Impressum</a>
+            </div>
+            <div class="flex gap-2 md:gap-3 lg:gap-4">
+                <a href="login.html" target="_blank" class="bg-primary text-white px-4 md:px-5 lg:px-7 py-2.5 md:py-3 rounded-full font-bold text-xs md:text-sm hover:bg-primary-hover transition shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transform duration-300 flex items-center justify-center gap-1.5 md:gap-2 whitespace-nowrap">
+                    <i class="fas fa-sign-in-alt text-xs"></i>
+                    <span>Login</span>
+                </a>
+                <a href="#contact" class="bg-primary text-white hover:bg-primary-hover px-4 md:px-5 lg:px-7 py-2.5 md:py-3 rounded-full font-bold text-xs md:text-sm transition shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transform duration-300 flex items-center justify-center whitespace-nowrap">
+                    Kontakt
+                </a>
+            </div>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-primary transition z-50 relative" type="button">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4 flex flex-col gap-4">
+            <a href="#hero-bg" class="text-gray-700 hover:text-primary transition py-2 uppercase text-sm tracking-wider text-center">Start</a>
+            <a href="#preise" class="text-gray-700 hover:text-primary transition py-2 uppercase text-sm tracking-wider text-center">Preise</a>
+            <a href="setup.html" class="text-gray-700 hover:text-primary transition py-2 uppercase text-sm tracking-wider text-center">Setup</a>
+            <a href="impressum.html" class="text-gray-700 hover:text-primary transition py-2 uppercase text-sm tracking-wider text-center">Impressum</a>
+            <a href="login.html" target="_blank" class="bg-primary text-white px-7 py-3 rounded-full font-bold text-sm hover:bg-primary-hover transition shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transform duration-300 flex items-center justify-center gap-2 mt-2">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Login</span>
+            </a>
+            <a href="#contact" class="bg-primary text-white hover:bg-primary-hover px-7 py-3 rounded-full text-sm font-bold transition shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transform duration-300 flex items-center justify-center mt-2">
+                Kontakt
+            </a>
+        </div>
+    </div>
+</nav>
+
+<script>
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
+});
+</script>

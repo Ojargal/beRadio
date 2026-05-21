@@ -1,0 +1,91 @@
+<!-- Modal: Impressum -->
+<dialog id="modal-impressum" class="p-6 md:p-8 rounded-2xl md:rounded-3xl max-w-3xl w-[95vw] md:w-full backdrop:bg-slate-900/80 overflow-y-auto max-h-[90vh]">
+    <div class="flex justify-between items-center mb-4 md:mb-6">
+        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Impressum</h3>
+         <button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-primary text-xl md:text-2xl"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="text-xs md:text-sm text-gray-600 space-y-3 md:space-y-4 leading-relaxed font-light">
+        <p><strong>bradio GmbH</strong><br><span class="italic">we <span class="text-primary font-bold">are</span> digital corporate radio!</span><br>Beschallung von Point of Sales</p>
+        <p>Seitenstettengasse 5/37, A-1010 Wien, Österreich</p>
+        <p>Telefon: +43 1 942 05 14 | E-Mail: hi@beradio.at | Web: www.beradio.at</p>
+        <p>Firmenbuch-Nr: FN 473489h | Handelsgericht Wien | Kammer: Wirtschaftskammer Wien | UID: ATU72601678</p>
+        <p class="text-xs mt-4">EU-Streitschlichtung: Angaben zur Online-Streitbeilegung: Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten: https://ec.europa.eu/odr. Sie können allfällige Beschwerde auch an die oben angegebene E-Mail-Adresse richten.</p>
+    </div>
+</dialog>
+
+<!-- Modal: Datenschutz -->
+<dialog id="modal-datenschutz" class="p-6 md:p-8 rounded-2xl md:rounded-3xl max-w-3xl w-[95vw] md:w-full backdrop:bg-slate-900/80 overflow-y-auto max-h-[90vh]">
+    <div class="flex justify-between items-center mb-4 md:mb-6">
+        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Datenschutz</h3>
+        <button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-primary text-xl md:text-2xl"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="text-xs md:text-sm text-gray-600 space-y-3 md:space-y-4 leading-relaxed font-light">
+        <p>Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten (nachfolgend kurz „Daten") innerhalb unseres Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte sowie externen Onlinepräsenzen, wie z.B. unser Social Media Profile auf (nachfolgend gemeinsam bezeichnet als „Onlineangebot").</p>
+        <p><strong>Verantwortlicher:</strong> bradio GmbH, Seitenstettengasse 5/37, A-1010 Wien, Österreich. E-Mail: hi@beradio.at</p>
+        <p><strong>Ihre Rechte:</strong> Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch gegen die Verarbeitung sowie das Recht auf Datenübertragbarkeit.</p>
+        <p>Wir verarbeiten Daten im Rahmen der gesetzlichen Bestimmungen (DSGVO, TKG 2003). Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten zu schützen (z.B. TLS-Verschlüsselung).</p>
+    </div>
+</dialog>
+
+<!-- Modal: AGB -->
+<dialog id="modal-agb" class="p-6 md:p-8 rounded-2xl md:rounded-3xl max-w-3xl w-[95vw] md:w-full backdrop:bg-slate-900/80 overflow-y-auto max-h-[90vh]">
+    <div class="flex justify-between items-center mb-4 md:mb-6">
+        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">AGB</h3>
+         <button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-primary text-xl md:text-2xl"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="text-xs md:text-sm text-gray-600 space-y-3 md:space-y-4 leading-relaxed font-light">
+        <p><strong>§ 1 Geltungsbereich:</strong> Diese AGB gelten für alle Verträge zwischen der beradio GmbH und ihren Kunden.</p>
+        <p><strong>§ 2 Vertragsgegenstand:</strong> Bereitstellung einer Radio-Streaming-Plattform und Hardware.</p>
+        <p><strong>§ 5 Laufzeit:</strong> Mindestlaufzeit 12 Monate, danach monatlich kündbar mit 1 Monat Frist.</p>
+        <p><strong>§ 6 Lizenzen:</strong> Alle Musik-Inhalte sind GEMA-lizenziert für die gewerbliche Nutzung am POS.</p>
+        <p>Stand: November 2025 | Gerichtsstand Wien.</p>
+    </div>
+</dialog>
+
+<script>
+// Fix für doppelte Scrollbar nach Modal-Aktivierung
+document.addEventListener('DOMContentLoaded', function() {
+    const dialogs = document.querySelectorAll('dialog');
+    
+    dialogs.forEach(dialog => {
+        // Event Listener für close Event
+        dialog.addEventListener('close', function() {
+            // Entferne overflow-hidden vom body und html wenn Modal geschlossen wird
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        });
+        
+        // Event Listener für cancel Event (ESC-Taste)
+        dialog.addEventListener('cancel', function() {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        });
+    });
+    
+    // Zusätzlicher Fix: Überwache und korrigiere Overflow-Änderungen
+    const checkOverflow = () => {
+        const htmlOverflow = window.getComputedStyle(document.documentElement).overflow;
+        const bodyOverflow = window.getComputedStyle(document.body).overflow;
+        
+        // Wenn beide visible oder auto sind, ist alles ok
+        // Wenn einer hidden ist während kein Modal offen ist, korrigiere es
+        const hasOpenModal = document.querySelector('dialog[open]');
+        
+        if (!hasOpenModal) {
+            if (document.body.style.overflow === 'hidden') {
+                document.body.style.overflow = '';
+            }
+            if (document.documentElement.style.overflow === 'hidden') {
+                document.documentElement.style.overflow = '';
+            }
+        }
+    };
+    
+    // Prüfe alle 500ms
+    setInterval(checkOverflow, 500);
+    
+    // Prüfe auch nach Scroll und Resize Events
+    window.addEventListener('scroll', checkOverflow, { passive: true });
+    window.addEventListener('resize', checkOverflow);
+});
+</script>
